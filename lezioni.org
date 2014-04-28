@@ -1,0 +1,124 @@
+# -*- coding: utf-8 -*-
+#+TITLE: Corso Titanium Developer
+#+AUTHOR: Alberto Berti <alberto@metapensiero.it
+#+LANGUAGE: it
+#+CATEGORY:
+#+SEQ_TODO: TODO WONTDO WiP DONE
+#+PROPERTY: Effort_ALL 0 0:10 0:30 1:00 2:00 3:00 4:00 5:00 6:00 7:00 8:00
+#+COLUMNS: %40ITEM(Voce) %13Effort(Tempo stimato){:} %CLOCKSUM(Tempo effettivo)
+
+* Lezioni
+** 28 Aprile Setup & get Running
+*** Installazione
+
+    Per il corretto funzionamento è necessario installare:
+    - Java JDK (OpenJDK 7?)
+    - install nodejs da [http://nodejs.org/download/]
+
+      Linux package
+
+      #+BEGIN_SRC sh
+
+      $ sudo apt-get install nodejs npm
+      #+END_SRC
+
+    - Android SDK  [http://developer.android.com/sdk/index.html]
+
+      - installare pacchetti API
+      - creare avd iniziale
+
+    - Installare i pacchetti titanium con:
+
+      #+BEGIN_SRC sh
+
+      $ npm install -g titanium alloy acs
+
+      #+END_SRC
+
+
+    - Titanium Studio da [http://www.appcelerator.com/titanium/download/]
+
+
+*** Panoramica funzionalità
+
+    - Per lo più utilizza componenti nativi di cui viene fornita una
+      specifica API JavaScript; []
+
+    - Per ragioni di portabilità del codice a volte astrae "concetti"
+      simili nelle varie piattaforme con oggetti compositi;
+
+    - struttura applicazione Titanium;
+
+*** Titanium cli
+
+    - create
+
+    #+BEGIN_SRC sh
+    $ ti create --id corso_ti.first -n first -p android -t app -d apps/
+
+    #+END_SRC
+
+    - build
+    #+BEGIN_SRC
+    $ ti build -p android -C g
+
+    #+END_SRC
+
+*** Git
+
+    - git init
+    - git add
+    - git status
+    - git commit
+    - git log
+
+*** Javascript
+
+    - The good parts!
+
+    Riferimento: [https://developer.mozilla.org/it/docs/Web/JavaScript/Reference]
+
+* Argomenti
+** Introduzione alla piattaforma Titanium e al suo ecosistema
+** Review delle basi di JavaScript con focus sui concetti di programmazione orientata agli oggetti
+   - proprietà
+   - metodi
+   - ereditarietà
+   - prototipi
+   - costruttori
+** JavaScript avanzato
+   - funzioni
+   - scoping
+   - closure
+   - event listeners
+   - callbacks
+   - anonymous functions
+** Tecniche object-oriented per la scrittura di codice modulare con CommonJS
+** Elementi di base delle User Interface: componenti grafici nativi
+   - Windows
+   - Views
+   - Controls
+   - Buttons
+   - Pickers
+   - TableView
+   - SearchBar
+   - ScrollView
+   - Tabs, ecc...) e
+   - layout
+** Gestione degli asset per diverse piattaforme e internazionalizzazione
+** Utilizzo di Titanium Studio
+** Introduzione all'utilizzo di un VCS: Git
+** Presentazione di Alloy: creazione di View e Styles cross platform
+** Alloy Controllers, Modelli e Collezioni e data binding con la User Interface
+** Persistenza dei dati su database locali SQLite, Properties con Alloy
+** Gestione di contenuti multimediali: audio, video, immagini
+** Accesso al file system locale
+** Interazione con server remoti via HTTP e gestione di XML/JSON e Yahoo (YQL)
+** Utilizzo dei servizi di geolocalizzazione e delle mappe native
+** Utilizzo dell’accelerometro e della bussola
+** Uso delle WebView per la realizzazione di applicazioni ibride e comunicazione con layer nativo
+** Estendere Titanium con i moduli nativi e il Marketplace
+** Panoramica di Titanium Cloud Services
+** Implementazione Account Utenti, Oggetti custom remoti e Push Notification con i servizi Cloud
+** Testing, debugging e installazione delle applicazioni sui dispositivi
+** Distribuzione e pubblicazione delle applicazioni su Google Play
