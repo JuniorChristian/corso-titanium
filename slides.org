@@ -1,0 +1,725 @@
+# -*- coding: utf-8 -*-
+#+TITLE: Corso Titanium App developer
+#+AUTHOR: Alberto Berti <alberto@metapensiero.it>
+#+LANGUAGE: it
+#+CATEGORY:
+#+SEQ_TODO: TODO WONTDO WiP DONE
+#+PROPERTY: Effort_ALL 0 0:10 0:30 1:00 2:00 3:00 4:00 5:00 6:00 7:00 8:00
+#+COLUMNS: %40ITEM(Voce) %13Effort(Tempo stimato){:} %CLOCKSUM(Tempo effettivo)
+#+DECK_THEME: web-2.0.css
+#+DECK_TRANSITION: horizontal-slide.css
+
+* Lezioni
+** 28 Aprile: Setup & get Running
+*** Installazione
+    :PROPERTIES:
+    :HTML_CONTAINER_CLASS: slide
+    :END:
+
+    Per il corretto funzionamento è necessario installare:
+    - Java JDK (OpenJDK 7?)
+    - install nodejs da [http://nodejs.org/download/]
+
+      Linux package
+
+      #+BEGIN_SRC sh
+
+      $ sudo apt-get install nodejs npm
+      #+END_SRC
+
+    - Android SDK  [http://developer.android.com/sdk/index.html]
+
+      - installare pacchetti API
+      - creare avd iniziale
+
+    - Installare i pacchetti titanium con:
+
+      #+BEGIN_SRC sh
+
+      $ npm install -g titanium alloy acs
+
+      #+END_SRC
+
+
+    - Titanium Studio da [http://www.appcelerator.com/titanium/download/]
+
+*** Panoramica funzionalità
+
+    - Per lo più utilizza componenti nativi di cui viene fornita una
+      specifica API JavaScript; []
+
+    - Per ragioni di portabilità del codice a volte astrae "concetti"
+      simili nelle varie piattaforme con oggetti compositi;
+
+    - struttura applicazione Titanium;
+
+*** Titanium cli
+
+    - create
+
+    #+BEGIN_SRC sh
+    $ ti create --id corso_ti.first -n first -p android -t app -d apps/
+
+    #+END_SRC
+
+    - build
+    #+BEGIN_SRC
+    $ ti build -p android -C g
+
+    #+END_SRC
+
+*** Git
+
+    - git init
+    - git add
+    - git status
+    - git commit
+    - git log
+
+*** Javascript
+
+    [[file:resources/js_the_good_parts.jpg]]
+
+    - The good parts!
+
+    Riferimento: [https://developer.mozilla.org/it/docs/Web/JavaScript/Reference]
+
+** 4 maggio: Introduzione a Titanium
+
+*** Funzionalità
+    - *Controlli UI nativi*
+      Native performance + Native UI (tables, animations,
+      gestures…etc.)
+    - *Multimedia*
+      Camera, video camera, streaming/device audio/video
+    - *Localizzazione*
+      geolocazione, bussola, accelerometro, mappe native
+    - *Reti sociali*
+      accesso a facebook, twitter, Yahoo YQL, contatti
+    - *Database*
+      SQLite data store, key/value store, web services
+    - *Estensibile*
+      moduli nativi
+
+*** Quello che non è:
+
+    Non è un semplice wrapper a WebKit ( le WebViews sono disponibili
+    ma non obbligatorie)
+
+    Non è una piattaforma per processare dati massivi (audio, video),
+    renders 3D, ecc...
+
+
+*** Titanium esiste per aiutare gli sviluppatori a  creare applicazioni native che...
+
+    - funzionano su più piattaforme
+
+    - sfruttano una serie di competenze comuni e un linguaggio di
+      programmazione dinamico
+
+    - come aspetto, /feel/ e performance si avvicinano a quelle native
+
+    - si inseriscono bene nell'ecosistema di applicazioni tipico della
+      piattaforma (notifiche locali, attività/intenti, servizi in
+      background)
+
+*** Titanium Studio
+
+    Basato su Eclipse
+
+    "Perspectives":
+
+    - Web -> programmazione
+    - Debug -> Test e risoluzione problemi
+
+*** Struttura di un progetto
+
+    Progetto/
+
+    /tiapp.xml -> configurazione del progetto
+
+    /Resources ->  file del progetto
+
+    /Resources/app.js -> main file js
+
+    /Resources/iphone -> risorse specifiche per iOS
+
+    /Resources/android -> risorse specifiche per Android
+
+    /build/ -> compilato
+
+*** Struttura di un progetto (dati opzionali)
+
+    Progetto/
+
+    /info.plist ->  configuazione xCode
+
+    /i18n ->  internazionalizzazione
+
+    /modules ->  moduli aggiuntivi
+
+    /modules/iphone/Settings.bundle/ ->  form  preferenze iOS
+
+    /platform/android/AndroidManifest.xml ->  Android Manifest
+
+    /platform/android/res/xml/preference ->  Preferenze Android
+
+*** Titanium API
+
+    http://docs.appcelerator.com/titanium/latest/#!/api
+
+*** Include, require e moduli
+
+    - Ti.include(‘file.js’) -> include il file specificato nella
+      posizione corrente
+
+    - var myMod = require(‘lib/myMod.js’) -> CommonJS modules
+
+    - moduli nativi
+
+*** Titanium API, contesto di esecuzione globale
+
+    Il contesto di esecuzione globale di Titanium contiene il
+    namespace Titanium.* (usato per accedere all'API) e i normali
+    oggetti globali JavaScript, come:
+
+    - Math.*, Object.*, String.*, etc.
+    - JSON
+    - parseInt(), parseFloat(), isNaN, isInfinite()…
+    - alert, setInterval, setTimeout, clearTimer, require…
+    - console.*
+
+Si può accedere a al namespace Titanium.* anche con l'alias Ti.*
+
+
+*** Kitchen Sink
+
+    API Demo
+
+    Dashboard -> Develop -> KitchenSink -> import
+
+    modificare il livello api android
+
+*** Event Handling
+
+    - La funzione per aggiungere un event handler è *addEventListener*
+
+    - gli eventi disponibili sono più o meno gli stessi disponibili in
+      un ambiente "browser" (click, doubleclick) + quelli "tattili"
+
+    - si può aggiungere a qualsiasi oggetto creato dalla API
+
+    - Si possono lanciare eventi con la funzione *fireEvent*
+
+*** Events
+
+    Esempio:
+
+    #+BEGIN_SRC js
+
+      myButton.addEventListener(‘click’, funzione);
+
+    #+END_SRC
+
+    altri eventi possono essere
+
+    - dblclick
+    - doubletap
+    - singletap
+    - swipe
+    - touchstart
+    - touchmove
+    - touchcancel
+    - touchend
+    - twofingertap
+
+** 12 maggio: approfondimento su Titanium.UI
+
+*** Disponibile su
+
+    http://azazel.pagekite.me
+
+*** Unità di misura
+
+
+    Unità di misura assolute:
+
+    - px : pixels
+    - mm : millimetri
+    - cm : centimetri
+    - in : pollici
+    - dp/dip : Density-independent pixels
+
+    Android : actual pixels = dip * (screen density) / 160
+
+    iOS : actual pixels = dip * (screen density) / 163 (effectively
+    1dip=1px on standard, 1dip=2px on retina)
+
+*** Unità di misura (cont.)
+
+    Unità di misura relative:
+
+    - %: percentuale relativa alla misura del contenitore (parent)
+
+    Per grandezze sull'asse x (width, left, right, center.x) si
+    intende relativa alla larghezza del contenitore
+
+    Per grandezze sull'asse y (height, top, bottom, center.y) si
+    intende relativa all'altezza del contenitore
+
+    Simile alla modalità di posizionamento /absolute/ del web.
+
+*** Unità di misura (cont.2)
+
+    #+BEGIN_SRC javascript
+    var view = Ti.UI.createView({
+        top: '10mm',
+        left: '5px',
+        width: '30%',
+        height: 50 /* qui viene utilizzata l'unità di misura di default */
+    });
+    #+END_SRC
+    É possibile definire qual'è l'unità di misura con
+
+    #+BEGIN_SRC xml
+    <property name="ti.ui.defaultunit" type="string">valore</property>
+    #+END_SRC
+
+    Dove valore è uno di px, mm, cm, in, dp, dip
+
+*** Il sistema di coordinate
+
+    - Device-indipendent su iOS
+
+      - iphone: 320 x 480 dip
+
+      - ipad: 1024 x 768 dip
+
+    - Device dipendent su Android
+
+      [[http://developer.android.com/guide/practices/screens_support.html]]
+
+      Diventa device-indipendent se si unsa *dp* come unità di misura
+      di sistema.
+
+*** Posizionamento e dimensioni
+
+    Gli elementi in Titanium sono posizionati relativamente al loro
+    contenitore. proprietà per gestire il posizionamento sono:
+
+    - /top/ e /left/ per specificare la distanza dell'angolo in alto a
+      sinistra rispetto al medesimo del suo contenitore;
+
+    - /bottom/ e /right/ per specificare la distanza dell'angolo in
+      basso a destra rispetto al medesimo del suo contenitore;
+
+    - la proprietà /center/ specifica la distanza del centro
+      dall'angolo in alto a sinistra del contenitore
+
+    Le dimensioni degli elementi vengono specificate con le proprietà
+    /width/ e /height/. Se omesse, saranno calcolate in base
+    rispettivamente a top/bottom e left/right.
+
+*** Modalità di layout
+
+    La modalità di posizionamento degli elementi è specificata tramite
+    la proprietà /layout/ e può assumere i valori:
+
+    - /absolute/: la modalità di default;
+
+    - /vertical/: gli elementi "figli" sono compattati verticalmente (dall'alto);
+
+    - /horizontal/: gli elementi "figli" sono compattati
+     orizzontalmente (da sinistra)
+
+
+*** Position Demo
+
+    Caricare in TitaniumStudio il seguente progetto:
+
+    [[https://github.com/azazel75/position_demo.git]]
+
+    File > import.. > Git repository as new project
+
+*** Comportamenti automatici
+
+    I componenti Titanium hanno dei comportamenti automatici che
+    possono essere:
+
+    - *SIZE*: L'elemento è grande quanto è necessario per contenere i
+      suoi childs;
+
+    - *FILL*: L'elemento si ingrandisce ad occupare tutto lo spazio
+      disponibile del contenitore;
+
+    Si utilizzano le costanti Ti.UI.SIZE e Ti.UI.FILL per valorizzare
+    /width/ e /height/
+
+*** Stacking
+
+    Ogni elemento creato potenzialmente ricopre gli elementi aggiunti
+    in precedenza
+
+    É possibile forzare questo comportamento con la proprietà /zIndex/
+    che accetta un intero maggiore di 0, come nel web.
+
+** 26 maggio: Alloy
+
+*** Che cos'è
+
+    - MVC (Model View Controller) aiuta a separare la forma dalla funzione
+
+      - velocizza e semplifica lo sviluppo
+      - migliora la manutenibilità
+
+    - Alloy è il framework MVC-like di Titanium
+
+    - convenzione piuttosto che configurazione
+
+*** Concetti base: i costituenti
+
+    - Viste
+    - Stili
+    - Controller
+    - Modelli
+    - (extra..)
+
+*** Vista - index.xml
+
+    #+BEGIN_SRC xml +n
+    <Alloy>
+        <Window titleid="story_title" modal="true" exitOnClose="true">
+            <Label onClick="labelClick" id="subtitle" color="orange" />
+            <Label top="25" color="white" textid="story_content" />
+        </Window>
+    </Alloy>
+    #+END_SRC
+
+*** Stile - index.tss
+
+    #+BEGIN_SRC css +n
+    "Window":{
+        backgroundColor: 'blue'
+    }
+    "Label":{
+        top: 20,
+        left: '25dp',
+        right: '25dp'
+    }
+    "#subtitle":{
+        width: Ti.UI.FILL,
+        textAlign: Ti.UI.TEXT_ALIGNMENT_CENTER,
+        font: {
+            fontSize: '16dp',
+            fontWeight: 'bold'
+        }
+    }
+    #+END_SRC
+
+*** Stile (continua)
+
+    - è sostanzialmente composto da una serie di dizionari JS
+    - è possibile utilizzare un file globale /app.tss/
+    - lo stile nel file specifico ha precedenza
+
+    - possibilità di specificare stili particolari:
+
+      - per la piattaforma con /platform/
+
+      - per la tipologia di dispositivo con /formFactor/ (handeld o
+        tablet)
+
+*** Stile (continua2 )
+
+    #+BEGIN_SRC css +n
+    // Any device that does not fit any of the below platforms
+    "Label": {
+        backgroundColor: "#fff",
+        text: 'Generic'
+    },
+    // iPhone
+    "Label[platform=ios formFactor=handheld]": {
+        backgroundColor: "#f00",
+        text: 'iPhone'
+    },
+    // iPad and iPad mini
+    "Label[platform=ios formFactor=tablet]": {
+        backgroundColor: "#0f0",
+        text: 'iPad'
+    },
+    // Android handheld and tablet devices
+    "Label[platform=android]": {
+        backgroundColor: "#00f",
+        text: 'Android'
+    },
+    // Any Mobile Web platform
+    "Label[platform=mobileweb]": {
+        backgroundColor: "#f0f",
+        text: 'Mobile Web'
+    }
+    #+END_SRC
+
+*** Controller
+
+    #+BEGIN_SRC js +n
+    function labelClick(e) {
+        alert($.label.text);
+    }
+
+    $.index.open();
+    #+END_SRC
+
+*** Modello
+
+    #+BEGIN_SRC js +n
+    exports.definition = {
+        config: {
+            columns: {
+                "link": "text",
+                "title": "text",
+                "date": "text",
+                "description": "text"
+            },
+            adapter: {
+                type: "sql",
+                collection_name: "posts",
+                idAttribute: 'link'
+            }
+        },
+    ...
+    };
+    #+END_SRC
+
+*** Convenzione e posizione dei files
+    Progetto/
+
+        /app/views       -> File XML delle viste
+
+        /app/styles      -> File TSS di stile
+
+        /app/controllers -> File JavaScript controller
+
+        /app/models      -> File JavaScript dei modelli
+
+        /app/assets      -> Risorse grafiche e altri files
+
+        /app/lib         -> Librerie e codice specifico della app
+
+        /app/themes      -> File dei temi
+
+        /app/widgets	Files and assets associated with widgets (self-contained app components)
+
+        /app/config.json	Specify global values, conditional environment and operating system values, and widget dependencies.
+
+        /app/migrations	JSON files that describe incremental changes in your database; in the format DATETIME_modelname.json
+
+*** Le viste in dettaglio
+
+    #+BEGIN_SRC xml +n
+    // Vista
+    <Alloy>
+      <ImageView id='foo' image='foo.png'/>
+    </Alloy>
+
+    // stile
+    "#foo": {
+      height:Ti.UI.SIZE,
+      width: Ti.UI.SIZE
+    }
+    #+END_SRC
+
+    - il tag ImageView rimanda all'oggetto Ti.UI.ImageView nella
+      libreria Titanium
+
+    - è possibile specificare le proprietà come attributi
+
+    - è possibile assiciare dei valori alle proprietà tramite stile
+
+*** Le viste in dettaglio (continua)
+
+    - Se bisogna specificare elementi non nel namespace Ti.UI,
+      come Ti.Map.View:
+
+      #+BEGIN_SRC xml +n
+      <View ns="Ti.Map" id="map"/>
+      #+END_SRC
+
+    - Per oggetti specifici di una o più piattaforme:
+
+      #+BEGIN_SRC xml +n
+      <Menu platform="android"/>
+      #+END_SRC
+
+*** I controller in dettaglio
+
+    - Contengono la logica dell'applicazione
+    - Sono il "punto di unione" tra viste e modelli
+    - Si usano per gestire l'interazione utente e l'aggiornamento della vista
+    - Per accedere ai componenti delle viste si usa la notazione
+      $.iddellavista
+
+    Se la window non ha un id, come in:
+
+    #+BEGIN_SRC xml +n
+    // specificata nel file index.xml
+    <Alloy>
+        <Window>
+            <Label onClick="labelClick" id="subtitle" color="orange" />
+        </Window>
+    </Alloy>
+    #+END_SRC
+
+    Per accedervi dal controller si userà $.index
+
+*** I controller in dettaglio (cont.)
+
+    I controller "vedono" i seguenti oggetti:
+
+    - "Alloy", il namespace contenente le funzioni di supporto di
+      Alloy
+
+    - "$" un riferimento al controller stesso (no jQuery)
+
+    -  "_" il riferimento alla libreria underscore
+
+    - arguments ( se è stato creato passando degli argomenti)
+
+*** I controller in dettaglio (cont. 2)
+
+    Per creare un controller da un'altro:
+
+    "Alloy.createController('nome' [, argomenti])" crea e restituisce
+    quel controller.
+
+    "controller.getView()" restituisce la vista associata
+
+*** Modelli in dettaglio
+
+    - basati su Backbone (http://backbonejs.org)
+
+    - incapsulano dati e stato dell'app;
+
+    - definiscono le "regole" applicate ai dati (default, validazione)
+
+    - definiscono come i dati vengono salvati (persistenza)
+
+    - definiscono una logica di trattamento e trasformazione (se necessarie)
+
+    - riferimento su http://docs.appcelerator.com/backbone/0.9.2
+
+*** Collezioni
+
+    - raggruppano un insieme di modelli
+
+    - Vengono creati nel controller o nella vista tramite il tag
+      "Collection"
+
+    - non c'è in Alloy un file specifico, ma si configurano nel file
+      del modello
+
+*** Definizione modello e accesso
+
+    Esempio: creazione di un libro
+
+    #+BEGIN_SRC js +n
+    // File: app/models/book.js
+    exports.definition = {
+        config: {
+            // table schema and adapter information
+        },
+        defaults: {
+            // default values for fields go here
+        },
+        extendModel: function(Model) {
+            _.extend(Model.prototype, {
+                // Put model validation and manipulation functions here
+            });
+
+            return Model;
+        },
+
+        extendCollection: function(Collection) {
+            _.extend(Collection.prototype, {
+                // Put collection validation and manipulation functions here
+            });
+
+            return Collection;
+        }
+    }
+    #+END_SRC
+
+*** Definizione modello e accesso (continua)
+
+    Nel controller:
+
+    #+BEGIN_SRC js +n
+    // Define a model of type 'book'
+    var book = Alloy.createModel('book', {
+      title:'Green Eggs and Ham',
+      author:'Dr. Seuss'
+    });
+
+    // access the fields in our model
+    var title = book.get('title');
+    var author = book.get('author');
+
+    // Assuming a Ti.UI.Label object in the view with id = 'label'
+    $.label.text = title + ' by ' + author;
+
+    book.set('title', 'Cat in the Hat');
+    $.label2text = 'Also by ' + author + ', ' + title;
+
+    #+END_SRC
+
+*** Aggiunta ad una collezione
+
+    Esempio di funzione di aggiunta
+    #+BEGIN_SRC js +n
+    // ...
+    var library = Alloy.Collections.instance('book');
+    // ...
+
+    function addItem() {
+      var books = Alloy.Collections.book;
+
+      // Create a new model for the books collection
+      var book = Alloy.createModel('book', {
+          author : $.authorField.value,
+          title : $.titleField.value,
+          isbn : $.isbnField.value
+      });
+
+      // add new model to the collection
+      books.add(book);
+
+      // save the model to persistent storage
+      book.save();
+
+      // reload the tasks
+      books.fetch();
+
+      closeWindow();
+    }
+    #+END_SRC
+
+*** Modelli
+
+    - tipi possibili:
+
+      text, string, varchar, int, tinyint, smallint, bigint, double,
+      float, decimal, number, date, datetime and boolean
+
+      SQLite: TEXT, INTEGER, REAL, BLOB
+
+    - eventi:
+      - model:
+        - add, change, change:nome_campo, error
+
+      - collection:
+
+        - add, change, error, remove, reset, sort
+
+
+    #+BEGIN_SRC js +n
+    book.on('change:title' function...);
+    #+END_SRC

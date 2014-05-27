@@ -1,0 +1,523 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--[if lt IE 7]> <html class='no-js ie6' lang='it' xmlns='http://www.w3.org/1999/xhtml'> <![endif]-->
+<!--[if IE 7]> <html class='no-js ie7' lang='it' xmlns='http://www.w3.org/1999/xhtml'> <![endif]-->
+<!--[if IE 8]> <html class='no-js ie8' lang='it' xmlns='http://www.w3.org/1999/xhtml'> <![endif]-->
+<!--[if gt IE 8]><!--> <html  lang='it' xmlns='http://www.w3.org/1999/xhtml'> <!--<![endif]-->
+<head>
+<title>Corso Titanium Developer</title>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+<meta name='generator' content='Org-mode'/>
+<meta name='author' content='Alberto Berti &lt;alberto@metapensiero.it'/>
+
+<link rel='stylesheet' href='deck.js/core/deck.core.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/extensions/goto/deck.goto.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/extensions/menu/deck.menu.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/extensions/navigation/deck.navigation.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/extensions/scale/deck.scale.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/extensions/status/deck.status.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/themes/style/swiss.css' type='text/css' />
+<link rel='stylesheet' href='deck.js/themes/transition/fade.css' type='text/css' />
+<script src='deck.js/jquery.min.js' type='text/javascript'></script>
+<script src='deck.js/core/deck.core.js' type='text/javascript'></script>
+<script src='deck.js/modernizr.custom.js' type='text/javascript'></script>
+<script src='deck.js/extensions/goto/deck.goto.js' type='text/javascript'></script>
+<script src='deck.js/extensions/menu/deck.menu.js' type='text/javascript'></script>
+<script src='deck.js/extensions/navigation/deck.navigation.js' type='text/javascript'></script>
+<script src='deck.js/extensions/scale/deck.scale.js' type='text/javascript'></script>
+<script src='deck.js/extensions/status/deck.status.js' type='text/javascript'></script>
+
+<script type='text/javascript'>
+  $(document).ready(function () { $.deck('.slide'); });
+</script>
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { color: green; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  td, th { vertical-align:top;  }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+
+<style type='text/css'>
+#table-of-contents a {color: inherit;}
+#table-of-contents ul {margin-bottom: 0;}
+#table-of-contents li {padding: 0;}
+#table-of-contents ul li {list-style-type: none;}
+#preamble, #postamble {left: 5px; width: 100%;}
+#preamble {position: absolute; top: 10px;}
+#postamble {}
+
+#title-slide h1 {
+    position: static; padding: 0;
+    margin-top: 10%;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+}
+#title-slide h2 {
+    text-align: center;
+    border:none;
+    padding: 0;
+    margin: 0;
+}
+</style>
+</head>
+<body>
+<div id='content' class='deck-container'>
+
+<div id='title-slide' class='slide'>
+<h1>Corso Titanium Developer</h1>
+<h2>Alberto Berti &lt;alberto@metapensiero.it</h2>
+<h2><a href="mailto:alberto@metapensiero.it">alberto@metapensiero.it</a></h2>
+<h2></h2>
+</div>
+<div id='table-of-contents' class='slide'>
+<h2>Indice</h2>
+
+<ul>
+<li><a href='#outline-container-sec-1'>1. Lezioni</a>
+<ul>
+<li>1.1. 28 Aprile Setup &amp; get Running
+<ul>
+<li>1.1.1. Installazione</li>
+<li>1.1.2. Panoramica funzionalità</li>
+<li>1.1.3. Titanium cli</li>
+<li>1.1.4. Git</li>
+<li>1.1.5. Javascript</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href='#outline-container-sec-2'>2. Argomenti</a>
+<ul>
+<li>2.1. Introduzione alla piattaforma Titanium e al suo ecosistema</li>
+<li>2.2. Review delle basi di JavaScript con focus sui concetti di programmazione orientata agli oggetti</li>
+<li>2.3. JavaScript avanzato</li>
+<li>2.4. Tecniche object-oriented per la scrittura di codice modulare con CommonJS</li>
+<li>2.5. Elementi di base delle User Interface: componenti grafici nativi</li>
+<li>2.6. Gestione degli asset per diverse piattaforme e internazionalizzazione</li>
+<li>2.7. Utilizzo di Titanium Studio</li>
+<li>2.8. Introduzione all'utilizzo di un VCS: Git</li>
+<li>2.9. Presentazione di Alloy: creazione di View e Styles cross platform</li>
+<li>2.10. Alloy Controllers, Modelli e Collezioni e data binding con la User Interface</li>
+<li>2.11. Persistenza dei dati su database locali SQLite, Properties con Alloy</li>
+<li>2.12. Gestione di contenuti multimediali: audio, video, immagini</li>
+<li>2.13. Accesso al file system locale</li>
+<li>2.14. Interazione con server remoti via HTTP e gestione di XML/JSON e Yahoo (YQL)</li>
+<li>2.15. Utilizzo dei servizi di geolocalizzazione e delle mappe native</li>
+<li>2.16. Utilizzo dell’accelerometro e della bussola</li>
+<li>2.17. Uso delle WebView per la realizzazione di applicazioni ibride e comunicazione con layer nativo</li>
+<li>2.18. Estendere Titanium con i moduli nativi e il Marketplace</li>
+<li>2.19. Panoramica di Titanium Cloud Services</li>
+<li>2.20. Implementazione Account Utenti, Oggetti custom remoti e Push Notification con i servizi Cloud</li>
+<li>2.21. Testing, debugging e installazione delle applicazioni sui dispositivi</li>
+<li>2.22. Distribuzione e pubblicazione delle applicazioni su Google Play</li>
+</ul>
+</li>
+</ul>
+</div>
+
+
+<div id="outline-container-sec-1" class="outline-2  slide">
+<h2 id="sec-1"><span class="section-number-2">1</span> Lezioni</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> 28 Aprile Setup &amp; get Running</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-sec-1-1-1" class="outline-4">
+<h4 id="sec-1-1-1"><span class="section-number-4">1.1.1</span> Installazione</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+Per il corretto funzionamento è necessario installare:
+</p>
+<ul class="org-ul">
+<li>Java JDK (OpenJDK 7?)
+</li>
+<li>install nodejs da [<a href="http://nodejs.org/download/">http://nodejs.org/download/</a>]
+
+<p>
+Linux package
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">$ sudo apt-get install nodejs npm
+</pre>
+</div>
+</li>
+
+<li>Android SDK  [<a href="http://developer.android.com/sdk/index.html">http://developer.android.com/sdk/index.html</a>]
+
+<ul class="org-ul">
+<li>installare pacchetti API
+</li>
+<li>creare avd iniziale
+</li>
+</ul>
+</li>
+
+<li>Installare i pacchetti titanium con:
+
+<div class="org-src-container">
+
+<pre class="src src-sh">$ npm install -g titanium alloy acs
+</pre>
+</div>
+</li>
+</ul>
+
+
+<ul class="org-ul">
+<li>Titanium Studio da [<a href="http://www.appcelerator.com/titanium/download/">http://www.appcelerator.com/titanium/download/</a>]
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1-1-2" class="outline-4">
+<h4 id="sec-1-1-2"><span class="section-number-4">1.1.2</span> Panoramica funzionalità</h4>
+<div class="outline-text-4" id="text-1-1-2">
+<ul class="org-ul">
+<li>Per lo più utilizza componenti nativi di cui viene fornita una
+specifica API JavaScript; []
+</li>
+
+<li>Per ragioni di portabilità del codice a volte astrae "concetti"
+simili nelle varie piattaforme con oggetti compositi;
+</li>
+
+<li>struttura applicazione Titanium;
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-1-3" class="outline-4">
+<h4 id="sec-1-1-3"><span class="section-number-4">1.1.3</span> Titanium cli</h4>
+<div class="outline-text-4" id="text-1-1-3">
+<ul class="org-ul">
+<li>create
+</li>
+</ul>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">$ ti create --id corso_ti.first -n first -p android -t app -d apps/
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>build
+</li>
+</ul>
+<pre class="example">
+$ ti build -p android -C g
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-1-1-4" class="outline-4">
+<h4 id="sec-1-1-4"><span class="section-number-4">1.1.4</span> Git</h4>
+<div class="outline-text-4" id="text-1-1-4">
+<ul class="org-ul">
+<li>git init
+</li>
+<li>git add
+</li>
+<li>git status
+</li>
+<li>git commit
+</li>
+<li>git log
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-1-5" class="outline-4">
+<h4 id="sec-1-1-5"><span class="section-number-4">1.1.5</span> Javascript</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<ul class="org-ul">
+<li>The good parts!
+</li>
+</ul>
+
+<p>
+Riferimento: [<a href="https://developer.mozilla.org/it/docs/Web/JavaScript/Reference">https://developer.mozilla.org/it/docs/Web/JavaScript/Reference</a>]
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2  slide">
+<h2 id="sec-2"><span class="section-number-2">2</span> Argomenti</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Introduzione alla piattaforma Titanium e al suo ecosistema</h3>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Review delle basi di JavaScript con focus sui concetti di programmazione orientata agli oggetti</h3>
+<div class="outline-text-3" id="text-2-2">
+<ul class="org-ul">
+<li>proprietà
+</li>
+<li>metodi
+</li>
+<li>ereditarietà
+</li>
+<li>prototipi
+</li>
+<li>costruttori
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> JavaScript avanzato</h3>
+<div class="outline-text-3" id="text-2-3">
+<ul class="org-ul">
+<li>funzioni
+</li>
+<li>scoping
+</li>
+<li>closure
+</li>
+<li>event listeners
+</li>
+<li>callbacks
+</li>
+<li>anonymous functions
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-4" class="outline-3">
+<h3 id="sec-2-4"><span class="section-number-3">2.4</span> Tecniche object-oriented per la scrittura di codice modulare con CommonJS</h3>
+</div>
+<div id="outline-container-sec-2-5" class="outline-3">
+<h3 id="sec-2-5"><span class="section-number-3">2.5</span> Elementi di base delle User Interface: componenti grafici nativi</h3>
+<div class="outline-text-3" id="text-2-5">
+<ul class="org-ul">
+<li>Windows
+</li>
+<li>Views
+</li>
+<li>Controls
+</li>
+<li>Buttons
+</li>
+<li>Pickers
+</li>
+<li>TableView
+</li>
+<li>SearchBar
+</li>
+<li>ScrollView
+</li>
+<li>Tabs, ecc&#x2026;) e
+</li>
+<li>layout
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-6" class="outline-3">
+<h3 id="sec-2-6"><span class="section-number-3">2.6</span> Gestione degli asset per diverse piattaforme e internazionalizzazione</h3>
+</div>
+<div id="outline-container-sec-2-7" class="outline-3">
+<h3 id="sec-2-7"><span class="section-number-3">2.7</span> Utilizzo di Titanium Studio</h3>
+</div>
+<div id="outline-container-sec-2-8" class="outline-3">
+<h3 id="sec-2-8"><span class="section-number-3">2.8</span> Introduzione all'utilizzo di un VCS: Git</h3>
+</div>
+<div id="outline-container-sec-2-9" class="outline-3">
+<h3 id="sec-2-9"><span class="section-number-3">2.9</span> Presentazione di Alloy: creazione di View e Styles cross platform</h3>
+</div>
+<div id="outline-container-sec-2-10" class="outline-3">
+<h3 id="sec-2-10"><span class="section-number-3">2.10</span> Alloy Controllers, Modelli e Collezioni e data binding con la User Interface</h3>
+</div>
+<div id="outline-container-sec-2-11" class="outline-3">
+<h3 id="sec-2-11"><span class="section-number-3">2.11</span> Persistenza dei dati su database locali SQLite, Properties con Alloy</h3>
+</div>
+<div id="outline-container-sec-2-12" class="outline-3">
+<h3 id="sec-2-12"><span class="section-number-3">2.12</span> Gestione di contenuti multimediali: audio, video, immagini</h3>
+</div>
+<div id="outline-container-sec-2-13" class="outline-3">
+<h3 id="sec-2-13"><span class="section-number-3">2.13</span> Accesso al file system locale</h3>
+</div>
+<div id="outline-container-sec-2-14" class="outline-3">
+<h3 id="sec-2-14"><span class="section-number-3">2.14</span> Interazione con server remoti via HTTP e gestione di XML/JSON e Yahoo (YQL)</h3>
+</div>
+<div id="outline-container-sec-2-15" class="outline-3">
+<h3 id="sec-2-15"><span class="section-number-3">2.15</span> Utilizzo dei servizi di geolocalizzazione e delle mappe native</h3>
+</div>
+<div id="outline-container-sec-2-16" class="outline-3">
+<h3 id="sec-2-16"><span class="section-number-3">2.16</span> Utilizzo dell’accelerometro e della bussola</h3>
+</div>
+<div id="outline-container-sec-2-17" class="outline-3">
+<h3 id="sec-2-17"><span class="section-number-3">2.17</span> Uso delle WebView per la realizzazione di applicazioni ibride e comunicazione con layer nativo</h3>
+</div>
+<div id="outline-container-sec-2-18" class="outline-3">
+<h3 id="sec-2-18"><span class="section-number-3">2.18</span> Estendere Titanium con i moduli nativi e il Marketplace</h3>
+</div>
+<div id="outline-container-sec-2-19" class="outline-3">
+<h3 id="sec-2-19"><span class="section-number-3">2.19</span> Panoramica di Titanium Cloud Services</h3>
+</div>
+<div id="outline-container-sec-2-20" class="outline-3">
+<h3 id="sec-2-20"><span class="section-number-3">2.20</span> Implementazione Account Utenti, Oggetti custom remoti e Push Notification con i servizi Cloud</h3>
+</div>
+<div id="outline-container-sec-2-21" class="outline-3">
+<h3 id="sec-2-21"><span class="section-number-3">2.21</span> Testing, debugging e installazione delle applicazioni sui dispositivi</h3>
+</div>
+<div id="outline-container-sec-2-22" class="outline-3">
+<h3 id="sec-2-22"><span class="section-number-3">2.22</span> Distribuzione e pubblicazione delle applicazioni su Google Play</h3>
+</div>
+</div>
+
+
+<!-- Place the following snippet at the bottom of the deck container. -->
+<p class="deck-status" aria-role="status">
+  <span class="deck-status-current"></span>
+  /
+  <span class="deck-status-total"></span>
+</p>
+
+<!-- Place the following snippet at the bottom of the deck container. -->
+<div aria-role="navigation">
+  <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+  <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+</div>
+
+<!-- Place the following snippet at the bottom of the deck container. -->
+<form action="." method="get" class="goto-form">
+  <label for="goto-slide">Go to slide:</label>
+  <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+  <datalist id="goto-datalist"></datalist>
+  <input type="submit" value="Go">
+</form>
+<div id="postamble" class="deck-status">
+<h1>Alberto Berti &lt;alberto@metapensiero.it - Corso Titanium Developer</h1>
+</div>
+
+</div>
+</body>
+</html>
